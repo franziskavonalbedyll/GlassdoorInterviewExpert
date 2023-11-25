@@ -13,11 +13,6 @@ repos:
     -   id: black
         args: ["-l", "79"]
 
--   repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0
-    hooks:
-    -   id: flake8
-
 -   repo: https://github.com/pre-commit/mirrors-isort
     rev: v5.10.1
     hooks:
@@ -28,8 +23,3 @@ repos:
     hooks:
     -   id: bandit
         args: ["-ll"]  # Loglevel
-
--   repo: https://github.com/PyCQA/pydocstyle
-    rev: 6.1.1
-    hooks:
-      - id: pydocstyle

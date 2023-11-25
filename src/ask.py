@@ -1,9 +1,9 @@
+from chromadb import PersistentClient
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
+from langchain.embeddings import OpenAIEmbeddings
 from langchain.memory import ConversationBufferMemory
 from langchain.vectorstores import Chroma
-from langchain.embeddings import OpenAIEmbeddings
-from chromadb import PersistentClient
 
 MEMORY = ConversationBufferMemory(
     memory_key="chat_history", return_messages=True
