@@ -1,3 +1,5 @@
+import os
+
 import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
 
@@ -34,11 +36,21 @@ def get_html(url):
     return driver.page_source
 
 
+def write_questions_to_file(questions):
+    if not os.path.exists("data"):
+        os.makedirs("data")
+
+    with open("data/collected_questions.txt", "w") as f:
+        for question in questions:
+            f.write(question + "\n")
+
+
 def collect_questions(base_url, stop_after=float("inf")):
     page_number = 1
     questions = []
     while True:
         if page_number == stop_after:
+            write_questions_to_file(questions)
             return questions
 
         # Construct the URL for the current page
@@ -53,7 +65,9 @@ def collect_questions(base_url, stop_after=float("inf")):
         )
 
         if cleaned_interview_questions == []:
-            return questions
+            # write collected_questions to txt
+            write_questions_to_file(questions)
+            return
         else:
             questions += cleaned_interview_questions
 

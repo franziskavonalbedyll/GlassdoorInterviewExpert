@@ -161,3 +161,8 @@ cython_debug/
 
 todo.txt
 .env
+
+# ignore generated outputs
+data
+embeddings
+results

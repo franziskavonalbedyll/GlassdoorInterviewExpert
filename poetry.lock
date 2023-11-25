@@ -1267,6 +1267,16 @@ lint = ["flake8 (==6.0.0)", "flake8-bugbear (==23.7.10)", "mypy (==1.4.1)", "pre
 tests = ["pytest", "pytz", "simplejson"]
 
 [[package]]
+name = "mdutils"
+version = "1.6.0"
+description = "Useful package for creating Markdown files while executing python code."
+optional = false
+python-versions = "^3.6"
+files = [
+    {file = "mdutils-1.6.0.tar.gz", hash = "sha256:647f3cf00df39fee6c57fa6738dc1160fce1788276b5530c87d43a70cdefdaf1"},
+]
+
+[[package]]
 name = "mmh3"
 version = "4.0.1"
 description = "Python extension for MurmurHash (MurmurHash3), a set of fast and robust hash functions."
@@ -3360,4 +3370,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "8612860d3be25a1179acf275fbecd92a27536249c804da14c0ad2a06a3264cf2"
+content-hash = "0944cd9e0aa65232270cde0f997583f1b9d9397c3ceadd76a42256a1708c79b9"
