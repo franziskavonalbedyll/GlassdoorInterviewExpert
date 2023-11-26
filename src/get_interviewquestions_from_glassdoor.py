@@ -1,4 +1,6 @@
 import os
+import random
+import time
 
 import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
@@ -29,13 +31,6 @@ def extract_interview_questions_from_html(html):
     return cleaned_interview_questions  # Display first 3 entries for review
 
 
-def get_html(url):
-    driver = uc.Chrome(headless=False)
-    driver.get(url)
-
-    return driver.page_source
-
-
 def write_questions_to_file(questions):
     if not os.path.exists("data"):
         os.makedirs("data")
@@ -48,6 +43,7 @@ def write_questions_to_file(questions):
 def collect_questions(base_url, stop_after=float("inf")):
     page_number = 1
     questions = []
+    driver = uc.Chrome(headless=False)
     while True:
         if page_number == stop_after:
             write_questions_to_file(questions)
@@ -59,7 +55,9 @@ def collect_questions(base_url, stop_after=float("inf")):
         else:
             url = f"{base_url[:-4]}_P{page_number}.htm"
 
-        html = get_html(url)
+        time.sleep(random.randint(10, 60))
+        driver.get(url)
+        html = driver.page_source
         cleaned_interview_questions = extract_interview_questions_from_html(
             html
         )

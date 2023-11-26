@@ -16,7 +16,7 @@ base_url = "https://www.glassdoor.com/Interview/Spotify-Interview-Questions-E408
 if not os.path.exists(
     os.path.join(os.getcwd(), "data", "collected_questions.txt")
 ):
-    collect_questions(base_url, stop_after=2)
+    collect_questions(base_url)
 
 # create embeddings, which will be stored to the embedding directory by default
 create_embeddings()
